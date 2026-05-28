@@ -92,4 +92,4 @@ Pronto para começar?
 
 ---
 
-© 2026 — StackWeb Agency. Todos os direitos reservados.
+© 2026 — StackWeb Agency. Todos os direitos reservados.# Stackwebagencyltda.github.io
