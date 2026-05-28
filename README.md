@@ -93,13 +93,3 @@ Pronto para começar?
 ---
 
 © 2026 — StackWeb Agency. Todos os direitos reservados.# Stackwebagencyltda.github.io
-# Stackwebagencyltda.github.io
-# Stackwebagencyltda.github.io
-# stackwebagencyltda.github.io
-# stackwebagencyltda.github.io
-# stackwebagencyltda.github.io
-# stackwebagencyltda.github.io
-"# stackwebagencyltda" 
-"# stackwebagencyltda" 
-"# stackwebagencyltda" 
-# stackwebagencyltda
