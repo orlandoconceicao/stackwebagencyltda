@@ -1,0 +1,152 @@
+PROMPT:
+Atualize o projeto front-end para alterar o ícone (favicon) que aparece na aba do navegador para o perfil oficial da empresa no Instagram:
+https://www.instagram.com/agenciastackweb/
+
+O objetivo é substituir o favicon atual pelo avatar do perfil da empresa.
+
+Requisitos:
+
+Buscar a imagem de perfil pública do Instagram da conta informada.
+Usar essa imagem como favicon do site.
+Garantir compatibilidade com navegadores modernos (favicon.ico e também PNG).
+Atualizar corretamente a tag <link rel="icon"> no <head> do HTML.
+Caso não seja possível usar diretamente o link do Instagram por restrições, baixar a imagem e salvar localmente no projeto (ex: /assets/favicon.png ou /img/favicon.png) e referenciar localmente.
+Manter o restante da estrutura do projeto intacta, sem alterações desnecessárias.
+Garantir que o favicon funcione em todas as páginas do sistema.
+
+Resultado esperado:
+O site deve exibir o ícone da empresa (perfil do Instagram da StackWeb Agency) na aba do navegador.
+
+===================================================================================================================
+PROMPT GERAL (SEÇÃO NOVA NO LUGAR DOS DEPOIMENTOS)
+
+Quero substituir a seção de depoimentos de um site por uma seção de portfólio profissional chamada “Projetos Demo”.
+
+Essa seção deve parecer uma agência de desenvolvimento web moderna e profissional, com foco em apresentação de trabalhos.
+
+A seção deve conter 3 cards de projetos em formato de grid.
+
+Cada card deve ter:
+
+Um título pequeno acima da imagem dizendo: “Sites de exemplo/demo”
+Nome do projeto
+Uma imagem do projeto em destaque
+A imagem deve ser clicável e levar para a landing page do projeto
+
+O design deve ser estilo Dribbble, moderno, minimalista e premium, com espaçamento bem feito, sombras suaves e efeito hover nos cards.
+
+O objetivo é substituir completamente depoimentos por portfólio visual realista.
+
+==========================================================================================================================
+
+1. RESTAURANTE DEMO — Sabor Express
+
+Landing page de restaurante moderno para delivery, com foco em conversão de pedidos.
+
+Estrutura do site:
+
+apresentação do restaurante
+cardápio simples e organizado
+botão de pedido via WhatsApp bem visível
+localização
+horário de funcionamento
+
+Referência visual:
+https://dribbble.com/shots/26882326-Pizza-Restaurant-Landing-Page-UI
+
+Estilo:
+
+Dribbble style
+design premium e minimalista
+imagens grandes de comida
+cores quentes como vermelho, laranja e marrom
+foco total em aumentar pedidos
+
+==========================================================================================================================
+
+2. LOJA ONLINE DEMO — Urban Style Store
+
+Landing page de e-commerce de roupas modernas.
+
+Estrutura do site:
+
+vitrine de produtos
+produtos em destaque
+categorias simples e organizadas
+botão de compra via WhatsApp
+
+Referência visual:
+https://dribbble.com/shots/27365337-Luxury-Hijab-Fashion-eCommerce-Landing-Page-Lusoria
+
+Estilo:
+
+design minimalista premium
+estilo Apple e Dribbble
+foco em conversão de vendas
+tipografia forte e elegante
+muito espaço em branco
+layout responsivo
+
+==================================================================================================================
+
+3. BARBEARIA DEMO — King Barber Studio
+
+Landing page de barbearia premium moderna.
+
+Estrutura do site:
+
+serviços
+preços
+fotos de cortes de cabelo
+botão de agendamento via WhatsApp
+
+Referência visual:
+https://dribbble.com/shots/14219994-BarberShop-Website-Concept
+
+Estilo:
+
+design masculino premium
+cores escuras (preto, cinza e dourado)
+tipografia forte
+imagens grandes
+foco em agendamento
+sensação de marca profissional e sofisticada
+OBJETIVO FINAL
+
+Essa seção deve substituir depoimentos e funcionar como:
+
+portfólio visual da agência
+prova de capacidade técnica
+apresentação profissional dos serviços
+elemento de confiança para fechar clientes
+
+Deve passar a sensação de uma agência real de desenvolvimento web moderna, mesmo sendo projetos demo.
+
+
+==============================================================================================================
+Corrija e otimize totalmente a versão mobile do site.
+
+O design precisa ser 100% responsivo e funcionar perfeitamente em celulares, principalmente em telas pequenas.
+
+Regras obrigatórias:
+
+Ajustar todo o layout para mobile-first
+Garantir que nenhum elemento quebre ou ultrapasse a tela horizontalmente
+Melhorar espaçamentos (padding e margin) para telas pequenas
+Deixar textos mais legíveis no celular (sem excesso de tamanho ou cortes)
+Botões devem ser grandes, clicáveis e bem espaçados
+Garantir que o botão principal (WhatsApp / CTA) fique sempre visível e fácil de clicar
+Cards da seção “Projetos Demo” devem virar uma coluna no mobile
+Planos devem empilhar verticalmente (1 por linha)
+Imagens devem ser responsivas e não perder qualidade ou estourar o layout
+Evitar elementos muito próximos (melhorar UX touch)
+Melhorar hierarquia visual no mobile (hero primeiro, CTA depois, conteúdo em ordem clara)
+
+O objetivo é deixar o site com aparência profissional e conversão alta no celular, com navegação simples e rápida.
+
+Estilo final:
+
+mobile clean
+rápido de navegar
+foco em conversão
+UX moderno
