@@ -1,5 +1,9 @@
 # 🚀 StackWeb Agency
 
+🌐 **Site oficial:** https://stackwebagencyltda.vercel.app/
+
+---
+
 ## 🌐 Contato
 - 📸 Instagram: https://www.instagram.com/agenciastackweb/
 - 📧 Email: stackwebagencyltda@gmail.com
@@ -87,9 +91,15 @@ Sistema completo com painel administrativo, automações e controle total.
 Pronto para começar?
 
 - Enviar mensagem  
-- Enviar e-mail  
+- Enviar e-mail: stackwebagencyltda@gmail.com
 - Instagram: https://www.instagram.com/agenciastackweb/
 
+© 2026 — StackWeb Agency. Todos os direitos reservados.
 ---
 
-© 2026 — StackWeb Agency. Todos os direitos reservados.# Stackwebagencyltda.github.io
+# 👨‍💻 Autor
+
+**Orlando Conceição**  
+Front-End & Backend Developer  
+
+📧 orlandoconceicao94@gmail.com
