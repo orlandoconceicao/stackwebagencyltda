@@ -478,23 +478,79 @@ a {
     display: flex;
     width: 100%;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.9rem;
     margin-top: 0.75rem;
-    padding: 1rem;
+    padding: 0 1rem;
     border-radius: 24px;
-    background: rgba(15, 19, 32, 0.95);
+    background: rgba(15, 19, 32, 0.96);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.25s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.25s ease;
   }
 
   .main-nav.open {
-    max-height: 320px;
+    max-height: 360px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    padding: 1rem;
   }
 
   .main-nav a {
+    display: block;
+    width: 100%;
     color: var(--text);
-    padding: 0.85rem 0.5rem;
+    text-decoration: none;
+    padding: 1rem 1.2rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus-visible {
+    background: rgba(62, 225, 255, 0.12);
+    border-color: rgba(62, 225, 255, 0.22);
+    transform: translateY(-1px);
+  }
+
+  .main-nav a + a {
+    margin-top: 0;
+  }
+
+  .hero {
+    padding: 1.8rem 0 1rem;
+  }
+
+  .hero-content {
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .hero-actions {
+    gap: 0.8rem;
+  }
+
+  .hero-card {
+    padding: 1.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .hero-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-card p {
+    margin-bottom: 1.1rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1.1rem;
   }
 
   .hero h1,
@@ -504,11 +560,18 @@ a {
   }
 
   .hero {
-    padding: 2.5rem 0 1.8rem;
+    padding: 1.5rem 0 0.8rem;
+  }
+
+  .hero-content {
+    gap: 0.9rem;
+    align-items: start;
   }
 
   .hero-card {
     min-width: 0;
+    padding: 1.4rem;
+    margin-top: 0.5rem;
   }
 
   .hero-features li,
@@ -517,22 +580,26 @@ a {
   }
 
   .plan-card {
-    padding: 1.5rem;
+    padding: 1.4rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.2rem;
   }
 
   .why,
   .testimonials,
   .contact,
   .plans {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
   }
 
   .contact-panel {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
-    padding: 1.8rem;
+    padding: 1.6rem;
   }
 
   .contact-actions {

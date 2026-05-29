@@ -5,6 +5,8 @@ navToggle.addEventListener('click', () => {
   mainNav.classList.toggle('open');
   const expanded = mainNav.classList.contains('open');
   navToggle.setAttribute('aria-expanded', expanded);
+  navToggle.setAttribute('aria-label', expanded ? 'Fechar menu' : 'Abrir menu');
+  navToggle.textContent = expanded ? 'Fechar' : 'Menu';
 });
 
 document.querySelectorAll('.main-nav a').forEach(link => {
@@ -49,9 +51,10 @@ buttons.forEach(button => {
 });
 
 // Scroll animations with reveal effect - reactivates on every scroll
+const isMobile = window.matchMedia('(max-width: 720px)').matches;
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
+  threshold: isMobile ? 0.05 : 0.1,
+  rootMargin: isMobile ? '0px 0px -180px 0px' : '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
