@@ -16,6 +16,25 @@ document.querySelectorAll('.main-nav a').forEach(link => {
 });
 
 const buttons = document.querySelectorAll('a[href^="#"]');
+
+const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+const smoothScrollTo = (targetY, duration = 280) => {
+  const startY = window.scrollY || window.pageYOffset;
+  const distance = targetY - startY;
+  let startTime = null;
+
+  const step = timestamp => {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min(1, (timestamp - startTime) / duration);
+    window.scrollTo(0, startY + distance * easeOutCubic(progress));
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  };
+
+  requestAnimationFrame(step);
+};
+
 buttons.forEach(button => {
   button.addEventListener('click', event => {
     const targetId = button.getAttribute('href');
@@ -23,7 +42,8 @@ buttons.forEach(button => {
     const target = document.querySelector(targetId);
     if (target) {
       event.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 16;
+      smoothScrollTo(offsetTop, 280);
     }
   });
 });
