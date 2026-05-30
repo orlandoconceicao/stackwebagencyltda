@@ -468,3 +468,39 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Scroll Reveal: performant, subtle, mobile-optimized */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-translate, 30px));
+  transition: opacity var(--reveal-duration, 700ms) var(--reveal-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+              transform var(--reveal-duration, 700ms) var(--reveal-ease, cubic-bezier(0.22, 1, 0.36, 1));
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Ensure buttons and small interactive elements feel snappy on mobile */
+.reveal.btn {
+  transition-duration: 360ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Minor helper to avoid jump when images load */
+.reveal img {
+  display: block;
+  max-width: 100%;
+}
