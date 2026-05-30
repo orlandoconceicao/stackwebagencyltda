@@ -40,7 +40,7 @@ function createRevealObserver() {
 
     el.style.transitionDelay = isMobile
       ? '60ms'
-      : `${Math.min(200, i * 60)}ms`;
+      : `${Math.min(320, i * 60)}ms`;
 
     revealObserver.observe(el);
   });
