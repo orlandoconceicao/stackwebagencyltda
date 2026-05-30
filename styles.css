@@ -18,6 +18,193 @@ html {
   scroll-behavior: auto;
 }
 
+/* =========================================================
+   SISTEMA PREMIUM DE ANIMAÇÕES - CONSTRUÇÃO PROGRESSIVA
+   ========================================================= */
+
+/* Variáveis de Animação */
+:root {
+  /* Duração padrão por tipo de dispositivo */
+  --anim-duration-fast: 500ms;
+  --anim-duration-normal: 650ms;
+  --anim-duration-slow: 800ms;
+  
+  /* Easing profissional */
+  --anim-ease-out: cubic-bezier(0.23, 1, 0.320, 1);
+  --anim-ease-in-out: cubic-bezier(0.43, 0.13, 0.23, 0.96);
+  --anim-ease-soft: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Delays de cascata */
+  --anim-stagger-fast: 40ms;
+  --anim-stagger-normal: 70ms;
+  --anim-stagger-slow: 100ms;
+}
+
+/* ========================================
+   ANIMAÇÃO BASE: FADE IN + SLIDE UP
+   ======================================== */
+
+.anim-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--anim-duration-normal) var(--anim-ease-out),
+              transform var(--anim-duration-normal) var(--anim-ease-out);
+  transition-delay: var(--anim-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.anim-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   VARIANTES DE ANIMAÇÃO
+   ======================================== */
+
+/* Fade apenas (sem movimento) */
+.anim-fade {
+  opacity: 0;
+  transition: opacity var(--anim-duration-normal) var(--anim-ease-out);
+  transition-delay: var(--anim-delay, 0ms);
+}
+
+.anim-fade.is-visible {
+  opacity: 1;
+}
+
+/* Slide up + fade (movimento maior) */
+.anim-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--anim-duration-slow) var(--anim-ease-out),
+              transform var(--anim-duration-slow) var(--anim-ease-out);
+  transition-delay: var(--anim-delay, 0ms);
+}
+
+.anim-slide-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide up rápido (mobile) */
+.anim-slide-fast {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--anim-duration-fast) var(--anim-ease-out),
+              transform var(--anim-duration-fast) var(--anim-ease-out);
+  transition-delay: var(--anim-delay, 0ms);
+}
+
+.anim-slide-fast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale + fade (para cards) */
+.anim-scale {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: opacity var(--anim-duration-normal) var(--anim-ease-out),
+              transform var(--anim-duration-normal) var(--anim-ease-out);
+  transition-delay: var(--anim-delay, 0ms);
+}
+
+.anim-scale.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Blur reveal (sofisticado) */
+.anim-blur {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(20px);
+  transition: opacity var(--anim-duration-normal) var(--anim-ease-out),
+              filter var(--anim-duration-normal) var(--anim-ease-out),
+              transform var(--anim-duration-normal) var(--anim-ease-out);
+  transition-delay: var(--anim-delay, 0ms);
+}
+
+.anim-blur.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* ========================================
+   CASCATA (STAGGER) PARA GRUPOS
+   ======================================== */
+
+/* Cascata normal (70ms entre elementos) */
+.anim-stagger-normal > .anim-reveal,
+.anim-stagger-normal > .anim-fade,
+.anim-stagger-normal > .anim-scale,
+.anim-stagger-normal > .anim-blur {
+  --anim-delay: calc(var(--anim-index, 0) * 70ms);
+}
+
+/* Cascata rápida (40ms entre elementos - mobile) */
+.anim-stagger-fast > .anim-reveal,
+.anim-stagger-fast > .anim-fade,
+.anim-stagger-fast > .anim-scale,
+.anim-stagger-fast > .anim-blur {
+  --anim-delay: calc(var(--anim-index, 0) * 40ms);
+}
+
+/* Cascata lenta (100ms entre elementos) */
+.anim-stagger-slow > .anim-reveal,
+.anim-stagger-slow > .anim-fade,
+.anim-stagger-slow > .anim-scale,
+.anim-stagger-slow > .anim-blur {
+  --anim-delay: calc(var(--anim-index, 0) * 100ms);
+}
+
+/* ========================================
+   MOBILE OPTIMIZATION
+   ======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    /* Duração mais rápida em mobile */
+    --anim-duration-fast: 400ms;
+    --anim-duration-normal: 500ms;
+    --anim-duration-slow: 650ms;
+  }
+  
+  /* Movimento reduzido em mobile */
+  .anim-reveal {
+    transform: translateY(20px);
+  }
+  
+  .anim-slide-up {
+    transform: translateY(25px);
+  }
+  
+  .anim-scale {
+    transform: scale(0.97) translateY(15px);
+  }
+}
+
+/* ========================================
+   RESPECTO AO REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-reveal,
+  .anim-fade,
+  .anim-slide-up,
+  .anim-slide-fast,
+  .anim-scale,
+  .anim-blur {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    --anim-delay: 0 !important;
+  }
+}
+
 body {
   margin: 0;
   min-height: 100vh;

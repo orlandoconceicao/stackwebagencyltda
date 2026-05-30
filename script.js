@@ -1,116 +1,355 @@
-const revealSelectors = [
-  'section',
-  '.hero-content',
-  '.hero-image',
-  '.service-card',
-  '.feature-card',
-  '.plan-card',
-  '.testimonial-card',
-  '.stat-card',
-  '.contact-card',
-  '.section-header',
-  '.btn',
-  '.card',
-].join(', ');
+/**
+ * ============================================
+ * SCROLL REVEAL SYSTEM - PRODUCTION READY
+ * ============================================
+ * 
+ * Um sistema de revelação premium com:
+ * ✓ Um único IntersectionObserver global
+ * ✓ Cascata otimizada por dispositivo
+ * ✓ Estados iniciais e finais precisos
+ * ✓ Sem memory leaks ou conflitos
+ * ✓ Suporte completo a mobile
+ * ✓ Respeita prefers-reduced-motion
+ */
 
-const revealConfig = {
-  desktop: { baseDelay: 60, increment: 100, translateY: 40, duration: 820, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' },
-  tablet: { baseDelay: 45, increment: 80, translateY: 40, duration: 720, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' },
-  mobile: { baseDelay: 30, increment: 60, translateY: 40, duration: 620, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' },
-};
+const ScrollReveal = (() => {
+  // ========================================
+  // CONFIGURAÇÃO
+  // ========================================
+  
+  const CONFIG = {
+    selectors: [
+      'section',
+      '.hero-content',
+      '.hero-card',
+      '.service-card',
+      '.feature-card',
+      '.plan-card',
+      '.testimonial-card',
+      '.stat-card',
+      '.contact-card',
+      '.section-header',
+      '.btn',
+      '.card',
+    ],
+    
+    devices: {
+      desktop: {
+        // Desktop: incremento de 90ms entre elementos
+        increment: 90,
+        baseDelay: 0,
+        duration: 750,
+        ease: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      },
+      tablet: {
+        // Tablet: incremento de 75ms entre elementos
+        increment: 75,
+        baseDelay: 0,
+        duration: 760,
+        ease: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      },
+      mobile: {
+        // Mobile: incremento de 60ms entre elementos
+        increment: 60,
+        baseDelay: 0,
+        duration: 770,
+        ease: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      },
+    },
+    
+    // IntersectionObserver options otimizado
+    observerOptions: {
+      // 10% do elemento visível para acionar
+      threshold: 0.1,
+      // Margem superior para antecipar 50px, inferior para detectar 0px
+      rootMargin: '-50px 0px 0px 0px',
+    },
+  };
 
-let revealObserver = null;
+  // ========================================
+  // ESTADO GLOBAL
+  // ========================================
+  
+  let observer = null;
+  let observedElements = new Set();
+  let lastDeviceProfile = null;
+  let mediaQueryListener = null;
 
-function isReducedMotion() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-
-function getDeviceProfile() {
-  if (window.matchMedia('(max-width: 720px)').matches) {
-    return revealConfig.mobile;
+  // ========================================
+  // HELPERS - Verificação de Estado
+  // ========================================
+  
+  /**
+   * Verifica se o usuário tem preferência por redução de movimento
+   */
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
-  if (window.matchMedia('(max-width: 1024px)').matches) {
-    return revealConfig.tablet;
+
+  /**
+   * Determina o perfil do dispositivo baseado no viewport
+   */
+  function getDeviceProfile() {
+    if (window.matchMedia('(max-width: 720px)').matches) {
+      return CONFIG.devices.mobile;
+    }
+    if (window.matchMedia('(max-width: 1024px)').matches) {
+      return CONFIG.devices.tablet;
+    }
+    return CONFIG.devices.desktop;
   }
-  return revealConfig.desktop;
-}
 
-function getSectionGroup(element) {
-  const section = element.closest('section');
-  if (section) {
-    const items = [section, ...section.querySelectorAll(revealSelectors)];
-    return items.filter(item => item === section || item.closest('section') === section);
+  /**
+   * Calcula o delay de cascata para um elemento
+   * Agrupa por seção e numera elementos sequencialmente
+   */
+  function calculateDelay(element, profile) {
+    // Encontra a seção pai ou usa o document como raiz
+    const section = element.closest('section');
+    const container = section || document;
+    
+    // Obtém todos os elementos revelados dentro dessa seção
+    const revealableElements = Array.from(
+      container.querySelectorAll(CONFIG.selectors.join(', '))
+    ).filter(el => {
+      // Garante que cada elemento está no container certo
+      return section ? el.closest('section') === section : !el.closest('section');
+    });
+    
+    // Encontra o índice do elemento atual
+    const index = revealableElements.indexOf(element);
+    const position = Math.max(0, index);
+    
+    // Calcula delay: baseDelay + (posição × incremento)
+    return profile.baseDelay + position * profile.increment;
   }
-  return Array.from(document.querySelectorAll(revealSelectors)).filter(item => !item.closest('section'));
-}
 
-function getRevealDelay(element, profile) {
-  const group = getSectionGroup(element);
-  const index = Math.max(0, group.indexOf(element));
-  return profile.baseDelay + index * profile.increment;
-}
+  // ========================================
+  // SETUP - Configuração de Elementos
+  // ========================================
+  
+  /**
+   * Prepara um elemento para revelação
+   * Define as variáveis CSS e classes
+   */
+  function prepareElement(element, profile) {
+    const delay = calculateDelay(element, profile);
+    
+    element.style.setProperty('--reveal-duration', `${profile.duration}ms`);
+    element.style.setProperty('--reveal-ease', profile.ease);
+    element.style.setProperty('--reveal-delay', `${delay}ms`);
+    
+    // Adiciona a classe que define o estado inicial
+    if (!element.classList.contains('scroll-reveal')) {
+      element.classList.add('scroll-reveal');
+    }
+  }
 
-function revealElement(element, profile) {
-  element.style.setProperty('--reveal-delay', `${getRevealDelay(element, profile)}ms`);
-  element.style.setProperty('--reveal-duration', `${profile.duration}ms`);
-  element.style.setProperty('--reveal-ease', profile.ease);
-  element.style.setProperty('--reveal-translate', `${profile.translateY}px`);
-  element.classList.add('scroll-reveal');
-}
+  /**
+   * Revela um elemento imediatamente (para reduced motion ou pré-load)
+   */
+  function revealElementImmediately(element) {
+    element.style.transition = 'none';
+    element.classList.add('scroll-reveal', 'visible');
+  }
 
-function handleIntersection(entries) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) {
+  // ========================================
+  // INTERSECTION OBSERVER
+  // ========================================
+  
+  /**
+   * Callback do IntersectionObserver
+   * Aciona a revelação quando elemento entra na viewport
+   */
+  function handleIntersection(entries) {
+    entries.forEach(entry => {
+      // Ignora elementos que saem da viewport
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      const element = entry.target;
+
+      // Usa requestAnimationFrame para garantir smooth animation
+      requestAnimationFrame(() => {
+        element.classList.add('visible');
+      });
+
+      // Para de observar (revelação acontece apenas uma vez)
+      observer.unobserve(element);
+      observedElements.delete(element);
+    });
+  }
+
+  /**
+   * Cria e retorna um novo IntersectionObserver
+   */
+  function createObserver() {
+    return new IntersectionObserver(
+      handleIntersection,
+      CONFIG.observerOptions
+    );
+  }
+
+  /**
+   * Desconecta o observer anterior e limpa estado
+   */
+  function disconnectObserver() {
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+    observedElements.clear();
+  }
+
+  // ========================================
+  // INICIALIZAÇÃO E SETUP
+  // ========================================
+  
+  /**
+   * Inicializa todo o sistema de scroll reveal
+   * Chamado na primeira vez e quando há mudanças de breakpoint
+   */
+  function initialize() {
+    // Verifica se deve usar animação reduzida
+    if (prefersReducedMotion()) {
+      // Revela tudo imediatamente sem animação
+      document.querySelectorAll(CONFIG.selectors.join(', ')).forEach(el => {
+        revealElementImmediately(el);
+      });
       return;
     }
 
-    const element = entry.target;
-    requestAnimationFrame(() => element.classList.add('visible'));
-    revealObserver.unobserve(element);
-  });
-}
+    // Limpa observer anterior
+    disconnectObserver();
 
-function revealAllImmediately() {
-  document.querySelectorAll(revealSelectors).forEach(element => {
-    element.classList.add('scroll-reveal', 'visible');
-    element.style.transition = 'none';
-  });
-}
+    // Obtém perfil do dispositivo
+    const profile = getDeviceProfile();
+    lastDeviceProfile = profile;
 
-function setupRevealObserver() {
-  if (revealObserver) {
-    revealObserver.disconnect();
+    // Cria novo observer
+    observer = createObserver();
+
+    // Prepara todos os elementos reveladores
+    document.querySelectorAll(CONFIG.selectors.join(', ')).forEach(element => {
+      prepareElement(element, profile);
+      observer.observe(element);
+      observedElements.add(element);
+    });
   }
 
-  if (isReducedMotion()) {
-    revealAllImmediately();
-    return;
+  /**
+   * Reinicializa se o dispositivo mudou de categoria
+   * (ex: desktop → tablet) mas não em mudanças menores
+   */
+  function handleViewportChange() {
+    const newProfile = getDeviceProfile();
+    
+    // Só reinicializa se mudou de categoria (desktop/tablet/mobile)
+    if (
+      !lastDeviceProfile ||
+      newProfile.increment !== lastDeviceProfile.increment
+    ) {
+      initialize();
+    }
   }
 
-  const profile = getDeviceProfile();
-  const options = {
-    threshold: 0.08,
-    rootMargin: '0px 0px -100px 0px',
+  /**
+   * Listener para mudanças de preferência de movimento reduzido
+   */
+  function handleReducedMotionChange(mq) {
+    if (mq.matches) {
+      // Usuário ativou reduced motion
+      disconnectObserver();
+      document.querySelectorAll(CONFIG.selectors.join(', ')).forEach(el => {
+        revealElementImmediately(el);
+      });
+    } else {
+      // Usuário desativou reduced motion
+      initialize();
+    }
+  }
+
+  /**
+   * Cleanup: remove todos os listeners quando página descarrega
+   */
+  function cleanup() {
+    if (mediaQueryListener) {
+      mediaQueryListener.removeEventListener?.('change', handleViewportChange);
+      mediaQueryListener.removeListener?.(handleViewportChange);
+    }
+
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    reducedMotionQuery.removeEventListener?.('change', handleReducedMotionChange);
+    reducedMotionQuery.removeListener?.(handleReducedMotionChange);
+
+    disconnectObserver();
+    observedElements.clear();
+  }
+
+  // ========================================
+  // PUBLIC API
+  // ========================================
+  
+  return {
+    /**
+     * Inicializa o sistema
+     */
+    init() {
+      // Inicialização principal
+      initialize();
+
+      // Setup de viewport listener para tablet/mobile/desktop
+      mediaQueryListener = window.matchMedia('(max-width: 1024px)');
+      if (mediaQueryListener.addEventListener) {
+        mediaQueryListener.addEventListener('change', handleViewportChange);
+      } else {
+        // Fallback para browsers antigos
+        mediaQueryListener.addListener(handleViewportChange);
+      }
+
+      // Setup de reduced motion listener
+      const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (reducedMotionQuery.addEventListener) {
+        reducedMotionQuery.addEventListener('change', handleReducedMotionChange);
+      } else {
+        reducedMotionQuery.addListener(handleReducedMotionChange);
+      }
+
+      // Cleanup ao descarregar página
+      window.addEventListener('beforeunload', cleanup);
+    },
+
+    /**
+     * Reinicializa o sistema (útil para pages dinâmicas)
+     */
+    reinit() {
+      initialize();
+    },
+
+    /**
+     * Retorna informações de debug
+     */
+    debug() {
+      return {
+        observedCount: observedElements.size,
+        currentProfile: lastDeviceProfile,
+        prefersReducedMotion: prefersReducedMotion(),
+        observerActive: observer !== null,
+      };
+    },
   };
+})();
 
-  revealObserver = new IntersectionObserver(handleIntersection, options);
-  const elements = Array.from(document.querySelectorAll(revealSelectors));
+// ========================================
+// INICIALIZAÇÃO AUTOMÁTICA
+// ========================================
 
-  elements.forEach(element => {
-    revealElement(element, profile);
-    revealObserver.observe(element);
-  });
+// Inicia quando o DOM está pronto
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => ScrollReveal.init());
+} else {
+  // DOM já foi carregado
+  ScrollReveal.init();
 }
 
-function handleViewportChange() {
-  setupRevealObserver();
-}
-
-setupRevealObserver();
-
-const breakpointQuery = window.matchMedia('(max-width: 1024px)');
-if (breakpointQuery.addEventListener) {
-  breakpointQuery.addEventListener('change', handleViewportChange);
-} else if (breakpointQuery.addListener) {
-  breakpointQuery.addListener(handleViewportChange);
-}
