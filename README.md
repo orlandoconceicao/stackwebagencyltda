@@ -1,16 +1,16 @@
-# 🚀 StackWeb Agency
+# StackWeb Agency
 
 🌐 **Site oficial:** https://stackwebagencyltda.vercel.app/
 
 ---
 
-## 🌐 Contato
-- 📸 Instagram: https://www.instagram.com/agenciastackweb/
-- 📧 Email: stackwebagencyltda@gmail.com
+## Contato
+- Instagram: https://www.instagram.com/agenciastackweb/
+- Email: stackwebagencyltda@gmail.com
 
 ---
 
-## 💡 StackWeb Agency
+## StackWeb Agency
 
 ### Soluções digitais completas
 
@@ -19,17 +19,17 @@ Landing pages, sites profissionais e sistemas web com design moderno, desempenho
 
 ---
 
-## 🎯 Oferta especial
+## Oferta especial
 
 Site rápido, bonito e otimizado para conversão, geração de leads e visibilidade online.
 
-- Design responsivo 📱  
-- Integração com WhatsApp 💬  
-- Performance otimizada ⚡  
+- Design responsivo  
+- Integração com WhatsApp   
+- Performance otimizada  
 
 ---
 
-## 💼 Planos
+## Planos
 
 ### 01 • ESSENCIAL — Landing Page
 Página única otimizada para conversão rápida e geração de leads.
@@ -64,16 +64,16 @@ Sistema completo com painel administrativo, automações e controle total.
 
 ---
 
-## ⭐ Por que escolher a StackWeb
+## Por que escolher a StackWeb
 
-- 🔒 Segurança Premium — SSL, backups e proteção contra ataques  
-- ⚡ Performance Ultra Rápida — sites otimizados para SEO e velocidade  
-- 💼 Suporte Dedicado — atendimento e manutenção contínua  
-- 📈 Crescimento Garantido — foco em conversão e escalabilidade  
+- Segurança Premium — SSL, backups e proteção contra ataques  
+- Performance Ultra Rápida — sites otimizados para SEO e velocidade  
+- Suporte Dedicado — atendimento e manutenção contínua  
+- Crescimento Garantido — foco em conversão e escalabilidade  
 
 ---
 
-## 💬 Depoimentos
+## Depoimentos
 
 > “A StackWeb Agency transformou completamente nossa presença online. Site moderno, rápido e profissional.”  
 **Carlos Henrique — CH Barbearia**
@@ -86,7 +86,7 @@ Sistema completo com painel administrativo, automações e controle total.
 
 ---
 
-## 📩 Contato final
+## Contato final
 
 Pronto para começar?
 
@@ -97,10 +97,10 @@ Pronto para começar?
 © 2026 — StackWeb Agency. Todos os direitos reservados.
 ---
 
-# 👨‍💻 Autor
+# Autor
 
 **Orlando Conceição**  
 
 Front-End & Backend Developer  
 
-📧 orlandoconceicao94@gmail.com
+contato: orlandoconceicao94@gmail.com
