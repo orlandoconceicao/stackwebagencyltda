@@ -128,15 +128,45 @@ a {
 }
 
 .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
-.btn {
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
 
+.hero-subtext {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.hero-pay-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(62, 225, 255, 0.14);
+  border: 1px solid rgba(106, 241, 255, 0.3);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1.4rem;
+  padding: 1rem 1.6rem;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
@@ -442,6 +472,29 @@ a {
 
   .main-nav a {
     color: var(--text);
+  }
+
+  .hero-actions .btn {
+    width: auto;
+  }
+
+  .hero-buttons .btn {
+    flex: 1 1 min(45%, 15rem);
+    min-width: 0;
+  }
+
+  .hero-buttons .btn-email {
+    display: none;
+  }
+
+  .hero-subtext {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .hero-pay-pill {
+    width: 100%;
   }
 }
 
