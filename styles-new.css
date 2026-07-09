@@ -449,8 +449,9 @@ a {
     flex-wrap: wrap;
   }
 
+  /* Remover botão de menu no mobile */
   .nav-toggle {
-    display: inline-flex;
+    display: none;
   }
 
   .main-nav {
@@ -474,13 +475,27 @@ a {
     color: var(--text);
   }
 
+
   .hero-actions .btn {
     width: auto;
   }
 
+  /* Garantir que os botões dentro de .hero-buttons tenham largura igual no mobile */
+  /* Garantir que os botões dentro de .hero-buttons tenham largura igual no mobile
+     e permitir quebra de linha no texto dos botões */
   .hero-buttons .btn {
-    flex: 1 1 min(45%, 15rem);
+    flex: 1;
     min-width: 0;
+    /* Não permitir quebra de linha */
+    white-space: nowrap;
+    overflow-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis; /* corta texto visualmente se necessário */
+    -webkit-hyphens: none;
+    hyphens: none;
+    text-align: center;
+    line-height: 1.1;
+    padding: 0.75rem 1rem; /* manter espaçamento no mobile */
   }
 
   .hero-buttons .btn-email {
