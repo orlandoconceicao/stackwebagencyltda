@@ -494,8 +494,9 @@ a {
     -webkit-hyphens: none;
     hyphens: none;
     text-align: center;
-    line-height: 1.1;
-    padding: 0.75rem 1rem; /* manter espaçamento no mobile */
+    line-height: 1.05;
+    padding: 0.5rem 0.9rem; /* reduzir padding para caber melhor */
+    font-size: 0.95rem; /* reduzir fonte no mobile para evitar quebra */
   }
 
   .hero-buttons .btn-email {

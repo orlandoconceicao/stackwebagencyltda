@@ -780,6 +780,9 @@ a {
   .hero-buttons .btn {
     flex: 1 1 min(45%, 15rem);
     min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .hero-buttons .btn-email {
