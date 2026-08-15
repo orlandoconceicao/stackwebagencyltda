@@ -1,6 +1,6 @@
 # StackWeb Agency
 
-🌐 **Site oficial:** https://stackwebagencyltda.vercel.app/
+**Site oficial:** https://stackwebagencyltda.vercel.app/
 
 ---
 
@@ -97,10 +97,10 @@ Pronto para começar?
 © 2026 — StackWeb Agency. Todos os direitos reservados.
 ---
 
-# Autor
+## Autor
 
-**Orlando Conceição**  
+**Orlando Conceição Vilhalba de Almeida**
 
-Front-End & Backend Developer  
+Desenvolvedor Backend em formação, desenvolvendo também soluções web com HTML, CSS e JavaScript.
 
-contato: orlandoconceicao94@gmail.com
+GitHub: [orlandoconceicao](https://github.com/orlandoconceicao)
