@@ -14,7 +14,7 @@
 
 ### Soluções digitais completas
 
-Criamos sites que transformam visitantes em clientes.  
+Criamos sites que transformam visitantes em clientes.
 Landing pages, sites profissionais e sistemas web com design moderno, desempenho rápido e suporte dedicado.
 
 ---
@@ -23,9 +23,9 @@ Landing pages, sites profissionais e sistemas web com design moderno, desempenho
 
 Site rápido, bonito e otimizado para conversão, geração de leads e visibilidade online.
 
-- Design responsivo  
-- Integração com WhatsApp   
-- Performance otimizada  
+- Design responsivo
+- Integração com WhatsApp
+- Performance otimizada
 
 ---
 
@@ -34,54 +34,54 @@ Site rápido, bonito e otimizado para conversão, geração de leads e visibilid
 ### 01 • ESSENCIAL — Landing Page
 Página única otimizada para conversão rápida e geração de leads.
 
-**R$ 900 (pagamento único)**  
-- Hospedagem + manutenção: R$ 90/mês  
-- Online 24h/dia  
-- Correção de erros técnicos  
-- Design responsivo  
+**R$ 900 (pagamento único)**
+- Hospedagem + manutenção: R$ 90/mês
+- Online 24h/dia
+- Correção de erros técnicos
+- Design responsivo
 
 ---
 
 ### 02 • PROFISSIONAL — Site Completo
 Site multi-páginas com estrutura profissional para fortalecer sua presença digital.
 
-**R$ 1.500 (pagamento único)**  
-- Hospedagem + manutenção: R$ 150/mês  
-- Suporte prioritário  
-- Menu de navegação completo  
-- Integração com redes sociais  
+**R$ 1.500 (pagamento único)**
+- Hospedagem + manutenção: R$ 150/mês
+- Suporte prioritário
+- Menu de navegação completo
+- Integração com redes sociais
 
 ---
 
 ### 03 • EMPRESARIAL — Sistema Web
 Sistema completo com painel administrativo, automações e controle total.
 
-**R$ 3.000 (pagamento único)**  
-- Infraestrutura + suporte: R$ 300/mês  
-- Login e permissões  
-- Pagamentos online  
-- Relatórios e automações  
+**R$ 3.000 (pagamento único)**
+- Infraestrutura + suporte: R$ 300/mês
+- Login e permissões
+- Pagamentos online
+- Relatórios e automações
 
 ---
 
 ## Por que escolher a StackWeb
 
-- Segurança Premium — SSL, backups e proteção contra ataques  
-- Performance Ultra Rápida — sites otimizados para SEO e velocidade  
-- Suporte Dedicado — atendimento e manutenção contínua  
-- Crescimento Garantido — foco em conversão e escalabilidade  
+- Segurança Premium — SSL, backups e proteção contra ataques
+- Performance Ultra Rápida — sites otimizados para SEO e velocidade
+- Suporte Dedicado — atendimento e manutenção contínua
+- Crescimento Garantido — foco em conversão e escalabilidade
 
 ---
 
 ## Depoimentos
 
-> “A StackWeb Agency transformou completamente nossa presença online. Site moderno, rápido e profissional.”  
+> “A StackWeb Agency transformou completamente nossa presença online. Site moderno, rápido e profissional.”
 **Carlos Henrique — CH Barbearia**
 
-> “Atendimento excelente e design muito bem feito. Ajudou muito na divulgação.”  
+> “Atendimento excelente e design muito bem feito. Ajudou muito na divulgação.”
 **Fernanda Alves — FA Studio Fitness**
 
-> “Processo rápido e muito organizado. Resultado final extremamente profissional.”  
+> “Processo rápido e muito organizado. Resultado final extremamente profissional.”
 **Ricardo Mendes — RM Consultoria**
 
 ---
@@ -90,7 +90,7 @@ Sistema completo com painel administrativo, automações e controle total.
 
 Pronto para começar?
 
-- Enviar mensagem  
+- Enviar mensagem
 - Enviar e-mail: stackwebagencyltda@gmail.com
 - Instagram: https://www.instagram.com/agenciastackweb/
 
@@ -101,6 +101,10 @@ Pronto para começar?
 
 **Orlando Conceição Vilhalba de Almeida**
 
-Desenvolvedor Backend em formação, desenvolvendo também soluções web com HTML, CSS e JavaScript.
+Desenvolvedor Backend em formação, com foco em Python, Django, Django REST Framework, PostgreSQL, APIs REST e Docker, utilizando React como tecnologia complementar para integração das aplicações.
 
-GitHub: [orlandoconceicao](https://github.com/orlandoconceicao)
+GitHub: [[github.com/orlandoconceicao](https://github.com/orlandoconceicao)](https://github.com/orlandoconceicao)
+
+LinkedIn: [[linkedin.com/in/orlando-conceição-582234315](https://www.linkedin.com/in/orlando-concei%C3%A7%C3%A3o-582234315)](https://www.linkedin.com/in/orlando-concei%C3%A7%C3%A3o-582234315)
+
+Portfólio: [[orlandoconceicao.github.io](https://orlandoconceicao.github.io/)](https://orlandoconceicao.github.io)
