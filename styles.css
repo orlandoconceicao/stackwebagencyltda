@@ -98,15 +98,15 @@ h3 {
 }
 
 h1 {
-  max-width: 650px;
+  max-width: 620px;
   margin-bottom: 15px;
-  font-size: clamp(2.1rem, 3.7vw, 3.35rem);
+  font-size: clamp(2rem, 3.35vw, 3.05rem);
   font-weight: 750;
 }
 
 h2 {
   margin-bottom: 14px;
-  font-size: clamp(1.85rem, 3vw, 2.9rem);
+  font-size: clamp(1.8rem, 2.7vw, 2.65rem);
   font-weight: 720;
 }
 
@@ -259,9 +259,9 @@ h3 {
 
 .hero-copy {
   display: flex;
-  min-height: 340px;
+  min-height: 310px;
   max-width: 780px;
-  padding: 48px 0;
+  padding: 38px 0;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -279,7 +279,7 @@ h3 {
 
 .hero-preview img {
   width: 100%;
-  height: clamp(240px, 22vw, 300px);
+  height: clamp(225px, 20vw, 275px);
   object-fit: cover;
 }
 
@@ -393,7 +393,7 @@ h3 {
 .plans,
 .process,
 .contact {
-  padding: 68px 0;
+  padding: 58px 0;
 }
 
 .services-layout,
@@ -418,9 +418,7 @@ h3 {
 
 .service-item,
 .process-list article {
-  padding: 17px 20px;
-  border-radius: 8px;
-  background: var(--surface-secondary);
+  padding: 0;
 }
 
 .service-item p,
@@ -439,15 +437,16 @@ h3 {
 .service-list,
 .process-list {
   display: grid;
-  gap: 10px;
+  gap: 24px;
+}
+
+.service-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .process-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.process-list article {
-  background: var(--background);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .project-item {
@@ -667,12 +666,21 @@ h3 {
   }
 
   .hero-copy {
-    min-height: 325px;
-    padding: 40px 18px;
+    min-height: 300px;
+    padding: 34px 0;
   }
 
   .hero-layout {
+    gap: 36px;
+  }
+
+  .services-layout,
+  .process-layout {
     gap: 44px;
+  }
+
+  .process-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
 }
@@ -740,8 +748,8 @@ h3 {
   }
 
   .hero-preview img {
-    height: auto;
-    aspect-ratio: 16 / 10;
+    height: clamp(210px, 50vw, 340px);
+    object-fit: cover;
   }
 
   .services,
@@ -749,13 +757,13 @@ h3 {
   .plans,
   .process,
   .contact {
-    padding: 52px 0;
+    padding: 46px 0;
   }
 
   .services-layout,
   .process-layout,
   .projects-layout {
-    gap: 32px;
+    gap: 28px;
   }
 
   .plans-heading,
@@ -766,6 +774,11 @@ h3 {
   .project-list,
   .plan-list {
     grid-template-columns: 1fr;
+  }
+
+  .service-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
   }
 
   .plan-row {
@@ -846,6 +859,11 @@ h3 {
 
   .process-list {
     grid-template-columns: 1fr;
+  }
+
+  .service-list {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   .payment-note {
