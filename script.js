@@ -1,6 +1,7 @@
 const navToggle = document.querySelector('#navToggle');
 const mainNav = document.querySelector('#mainNav');
 const themeToggle = document.querySelector('#themeToggle');
+const themeColor = document.querySelector('#themeColor');
 const root = document.documentElement;
 
 function updateThemeControl(theme) {
@@ -12,6 +13,7 @@ function updateThemeControl(theme) {
 
 function setTheme(theme) {
   root.dataset.theme = theme;
+  themeColor.setAttribute('content', theme === 'dark' ? '#07111f' : '#eef2f6');
   updateThemeControl(theme);
 
   try {
@@ -22,6 +24,7 @@ function setTheme(theme) {
 }
 
 updateThemeControl(root.dataset.theme);
+themeColor.setAttribute('content', root.dataset.theme === 'dark' ? '#07111f' : '#eef2f6');
 
 themeToggle.addEventListener('click', () => {
   setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
