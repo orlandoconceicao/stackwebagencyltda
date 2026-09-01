@@ -35,7 +35,7 @@ Site rápido, bonito e otimizado para conversão, geração de leads e visibilid
 
 ## Projetos
 
-### 01 • ELEVATE
+### 01 • ELEVATE — Landing Page
 
 Loja virtual de moda com interface moderna e experiência de navegação focada na apresentação dos produtos.
 
@@ -43,7 +43,7 @@ Loja virtual de moda com interface moderna e experiência de navegação focada 
 
 ---
 
-### 02 • Lege Clinic Odonto
+### 02 • Lege Clinic Odonto — Nível médio
 
 Site institucional desenvolvido para apresentação de uma clínica odontológica, seus serviços e informações para contato.
 
@@ -51,7 +51,7 @@ Site institucional desenvolvido para apresentação de uma clínica odontológic
 
 ---
 
-### 03 • DevFlow — Sistema Web
+### 03 • DevFlow — Avançado
 
 Seu espaço para projetos, equipe e resultados — tudo em um só fluxo.
 
