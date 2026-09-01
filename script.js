@@ -13,7 +13,7 @@ function updateThemeControl(theme) {
 
 function setTheme(theme) {
   root.dataset.theme = theme;
-  themeColor.setAttribute('content', theme === 'dark' ? '#06101d' : '#f3f7fb');
+  themeColor.setAttribute('content', theme === 'dark' ? '#0f1419' : '#fafbfc');
   updateThemeControl(theme);
 
   try {
@@ -24,7 +24,7 @@ function setTheme(theme) {
 }
 
 updateThemeControl(root.dataset.theme);
-themeColor.setAttribute('content', root.dataset.theme === 'dark' ? '#06101d' : '#f3f7fb');
+themeColor.setAttribute('content', root.dataset.theme === 'dark' ? '#0f1419' : '#fafbfc');
 
 const siteHeader = document.querySelector('.site-header');
 function updateHeaderState() {
